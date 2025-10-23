@@ -230,4 +230,73 @@ body{
 .section-card{ opacity:0; transform: translateY(10px); transition: opacity 420ms ease, transform 420ms ease; }
 .section-card.aos-in{ opacity:1; transform:none; }
 
+/* ====== TRUE BLACK MODE ====== */
+html[data-theme="dark"] {
+  background-color: #000 !important;
+  color: #f1f1f1 !important;
+}
+
+html[data-theme="dark"] body {
+  background-color: #000 !important;
+  color: #e5e5e5 !important;
+}
+
+/* Navbar and cards */
+html[data-theme="dark"] .navbar,
+html[data-theme="dark"] header,
+html[data-theme="dark"] footer {
+  background-color: #000 !important;
+  border-color: #222 !important;
+}
+
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .section-card,
+html[data-theme="dark"] .project-card {
+  background-color: #0a0a0a !important;
+  color: #f0f0f0 !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Links and accents */
+html[data-theme="dark"] a {
+  color: #0ff !important;
+}
+html[data-theme="dark"] a:hover {
+  color: #7fffd4 !important;
+}
+
+/* Progress bar in dark mode */
+html[data-theme="dark"] #progress-bar {
+  background-color: #0ff !important;
+}
+
+/* Buttons */
+html[data-theme="dark"] button,
+html[data-theme="dark"] .btn {
+  background-color: #111 !important;
+  color: #f8f8f8 !important;
+  border-color: #333 !important;
+}
+html[data-theme="dark"] button:hover,
+html[data-theme="dark"] .btn:hover {
+  background-color: #222 !important;
+}
+
+/* Inputs */
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background-color: #111 !important;
+  color: #f1f1f1 !important;
+  border-color: #333 !important;
+}
+
+/* Optional - lighter scrollbars */
+html[data-theme="dark"] ::-webkit-scrollbar {
+  width: 8px;
+}
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 4px;
+}
 
