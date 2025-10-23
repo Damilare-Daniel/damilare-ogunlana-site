@@ -1,557 +1,313 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="theme-light">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Damilare Ogunlana | Database Administrator & Data Engineer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/921/921347.png">
-    <style>
-        body {
-            font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(135deg, #eaf6ff 0%, #f8f9fa 100%);
-            color: #23395d;
-            overflow-x: hidden;
-        }
-        .navbar {
-            background: #1b375c;
-            box-shadow: 0 2px 10px rgba(27,55,92,0.12);
-        }
-        .navbar-brand, .nav-link {
-            color: #fff !important;
-        }
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-        }
 
-        /* Hero Section with Wave */
-        .hero-section {
-            position: relative;
-            background: linear-gradient(120deg, #2986d6 60%, #1b375c 100%);
-            color: #fff;
-            padding: 80px 0 50px 0;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(27,55,92,0.12);
-        }
-        .hero-section h1 {
-            font-size: 2.7rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-        .hero-section h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
-        .hero-section .badge {
-            font-size: 1rem;
-        }
-        .hero-section .glow-btn {
-            background: linear-gradient(90deg,#77c4ff 0%, #2986d6 100%);
-            color: #fff;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            box-shadow: 0 0 15px #2986d6, 0 0 30px #77c4ff;
-            transition: box-shadow 0.3s;
-        }
-        .hero-section .glow-btn:hover {
-            box-shadow: 0 0 30px #77c4ff, 0 0 60px #2986d6;
-            background: linear-gradient(90deg,#2986d6 0%, #77c4ff 100%);
-        }
-        .wave {
-            position: absolute;
-            left: 0; right: 0; bottom: -1px;
-            width: 100%; height: 90px;
-            background: url('https://svgshare.com/i/yjE.svg');
-            background-size: cover;
-            pointer-events: none;
-        }
-        .section-title {
-            margin-bottom: 30px;
-            color: #2986d6;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 12px #eaf6ff;
-        }
-        .card {
-            box-shadow: 0 2px 18px rgba(27,55,92,0.10);
-            border: none;
-            border-radius: 12px;
-        }
-        /* Glowing Skill Badges */
-        .skill-badge {
-            background: #eaf6ff;
-            color: #23395d;
-            border-radius: 18px;
-            font-size: 1rem;
-            padding: 10px 21px;
-            margin: 6px 8px 6px 0;
-            display: inline-block;
-            font-weight: 500;
-            transition: background 0.3s, box-shadow 0.3s;
-            box-shadow: 0 0 8px #cbe8ff;
-            cursor: pointer;
-        }
-        .skill-badge:hover {
-            background: #2986d6;
-            color: #fff;
-            box-shadow: 0 0 16px #2986d6, 0 0 24px #77c4ff;
-        }
-        /* Counters */
-        .counter-box {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 2px 14px #cbe8ff;
-            padding: 28px 18px;
-            text-align: center;
-            margin: 10px 0;
-        }
-        .counter {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #2986d6;
-            text-shadow: 0 2px 8px #cbe8ff;
-        }
-        .counter-label {
-            font-size: 1.07rem;
-            color: #555;
-            margin-top: 3px;
-        }
-        /* Timeline */
-        .timeline {
-            border-left: 3px solid #2986d6;
-            margin-left: 20px;
-            padding-left: 20px;
-        }
-        .timeline-item {
-            margin-bottom: 28px;
-            position: relative;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -27px;
-            top: 6px;
-            width: 15px;
-            height: 15px;
-            background: #2986d6;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            box-shadow: 0 0 8px #2986d6;
-        }
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-        /* Project Cards & Modals */
-        .project-card {
-            border-left: 4px solid #2986d6;
-            background: #f8fbff;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: box-shadow 0.2s, transform 0.2s;
-        }
-        .project-card:hover {
-            box-shadow: 0 4px 24px #77c4ff;
-            transform: translateY(-3px) scale(1.02);
-        }
-        .cert-badge {
-            background: #1b375c;
-            color: #fff;
-            margin: 3px;
-            padding: 8px 16px;
-            border-radius: 18px;
-            font-size: 0.98rem;
-            display: inline-block;
-            box-shadow: 0 0 8px #2986d6;
-        }
-        .contact-icon {
-            font-size: 1.3rem;
-            margin-right: 10px;
-            color: #2986d6;
-        }
-        .footer {
-            background: #1b375c;
-            color: #fff;
-            text-align: center;
-            padding: 18px 0;
-            font-size: 1rem;
-            box-shadow: 0 -2px 10px #23395d;
-        }
-        a {
-            color: #2986d6;
-        }
-        @media (max-width:600px) {
-            .skill-badge { padding: 7px 10px; font-size: 0.93rem;}
-            .container { padding-left: 5px; padding-right: 5px;}
-            .counter { font-size: 1.3rem;}
-        }
-    </style>
+    <!-- SEO & Social -->
+    <meta name="description" content="Damilare Ogunlana — Database Administrator & Data Engineer. MySQL, SQL Server, PostgreSQL, backup & recovery, replication, performance tuning, cloud (AWS/Azure), DevOps. Based in Lagos, Nigeria." />
+    <meta property="og:title" content="Damilare Ogunlana — Database Administrator & Data Engineer" />
+    <meta property="og:description" content="DBA & Data Engineer specializing in MySQL, SQL Server and PostgreSQL. Performance tuning, backup/recovery, cloud migrations and report automation." />
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/921/921347.png" />
+    <meta property="og:url" content="https://your-site.example/" />
+    <meta property="og:type" content="profile" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Damilare Ogunlana — Database Administrator & Data Engineer" />
+    <meta name="twitter:description" content="DBA & Data Engineer specializing in MySQL, SQL Server and PostgreSQL. Performance tuning, backup/recovery, cloud migrations and report automation." />
+    <meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/921/921347.png" />
+
+    <!-- Fav & Fonts -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/921/921347.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap & AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Manifest for theme-color on mobile -->
+    <meta name="theme-color" content="#0d9488" />
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Damilare Ogunlana</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="background-color: #fff;"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certs">Certifications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <h1>Damilare Ogunlana</h1>
-            <h2>Database Administrator & Data Engineer</h2>
-            <span class="badge rounded-pill bg-light text-dark mb-2">Lagos, Nigeria</span>
-            <p class="lead mt-3">
-                Detail-oriented DBA & Data Engineer with proven expertise in MySQL, SQL Server, and PostgreSQL.<br>
-                Bridging business needs with technical solutions for fintech & enterprise environments.
-            </p>
-            <div class="mt-3 mb-4">
-                <span class="badge bg-primary">Microsoft SQL Server Certified</span>
-                <span class="badge bg-info text-dark">SCRUM Fundamentals</span>
-                <span class="badge bg-success">AWS, Azure, Docker, DevOps</span>
-            </div>
-            <!--a class="glow-btn" href="Damilare_Ogunlana_CV_.pdf" download -->
-                <!--i class="bi bi-download"></i> Download CV
-        </a-->
-            <div class="d-flex justify-content-center align-items-center gap-3 mt-3 mb-4 flex-wrap">
-    <a class="glow-btn" href="Damilare_Ogunlana_CV_.pdf" download>
-        <i class="bi bi-download"></i> Download CV
-    </a>
-    <a class="glow-btn" href="https://www.linkedin.com/in/damilareogunlana/" target="_blank" style="background:linear-gradient(90deg,#2986d6 0%, #77c4ff 100%);">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20" style="vertical-align:middle;margin-right:8px;"> LinkedIn
-    </a>
-</div>
-        </div>
-        <div class="wave"></div>
-    </section>
+    <!-- Skip link for accessibility -->
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <div class="container mt-5 mb-5">
-        <!-- About -->
-        <section id="about" class="mb-5">
-            <h3 class="section-title">Professional Summary</h3>
-            <div class="card p-4">
-                <p>
-                    Detail-oriented Database Administrator & Data Engineer with proven expertise in MySQL,
-                    SQL Server, and PostgreSQL across development, testing, and production environments.
-                    Skilled in performance tuning, replication, backups, query optimization, and automation.
-                    Experienced in technical support, DevOps practices, and cloud-based infrastructures,
-                    ensuring system stability, data integrity, and security. Adept at bridging business needs
-                    with technical solutions, ensuring data-driven decisions, and maintaining high system
-                    uptime. Certified in Microsoft SQL Server and SCRUM Fundamentals, with a strong track
-                    record in fintech and enterprise environments.
-                </p>
-            </div>
-        </section>
-        <!-- Skills -->
-        <section id="skills" class="mb-5">
-            <h3 class="section-title">Core Competencies</h3>
-            <div class="card p-4">
-                <div class="mb-3">
-                    <span class="skill-badge">MySQL</span>
-                    <span class="skill-badge">SQL Server</span>
-                    <span class="skill-badge">PostgreSQL</span>
-                    <span class="skill-badge">Oracle</span>
-                    <span class="skill-badge">Backup & Recovery</span>
-                    <span class="skill-badge">Replication</span>
-                    <span class="skill-badge">High Availability</span>
-                    <span class="skill-badge">Performance Tuning</span>
-                    <span class="skill-badge">SQL</span>
-                    <span class="skill-badge">Python</span>
-                    <span class="skill-badge">Bash</span>
-                    <span class="skill-badge">PowerShell</span>
-                    <span class="skill-badge">Docker</span>
-                    <span class="skill-badge">Linux (Ubuntu, CentOS)</span>
-                    <span class="skill-badge">Git/GitHub</span>
-                    <span class="skill-badge">CI/CD</span>
-                    <span class="skill-badge">Cloud (AWS, Azure)</span>
-                    <span class="skill-badge">Query Optimization</span>
-                    <span class="skill-badge">Data Encryption</span>
-                    <span class="skill-badge">Access Control</span>
-                    <span class="skill-badge">Auditing</span>
-                    <span class="skill-badge">Power BI</span>
-                    <span class="skill-badge">Data Analysis</span>
-                    <span class="skill-badge">Report Automation</span>
-                    <span class="skill-badge">Jira</span>
-                    <span class="skill-badge">Confluence</span>
-                    <span class="skill-badge">Google Workspace</span>
-                    <span class="skill-badge">Microsoft Office 365</span>
-                    <span class="skill-badge">ClickUp</span>
-                    <span class="skill-badge">Stakeholder Communication</span>
-                    <span class="skill-badge">Team Collaboration</span>
-                    <span class="skill-badge">Problem-Solving</span>
-                    <span class="skill-badge">Confidentiality</span>
-                </div>
-            </div>
-        </section>
-        <!-- Achievements / Animated Counters -->
-        <section id="achievements" class="mb-5">
-            <h3 class="section-title">Achievements & Impact</h3>
-            <div class="row text-center">
-                <div class="col-md-3 col-6">
-                    <div class="counter-box">
-                        <div class="counter" data-target="150">0</div>
-                        <div class="counter-label">Reports Automated</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="counter-box">
-                        <div class="counter" data-target="40">0</div>
-                        <div class="counter-label">% Downtime Reduced</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="counter-box">
-                        <div class="counter" data-target="99.9">0</div>
-                        <div class="counter-label">System Uptime (%)</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="counter-box">
-                        <div class="counter" data-target="100">0</div>
-                        <div class="counter-label">Disaster Recovery Readiness (%)</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Experience -->
-        <section id="experience" class="mb-5">
-            <h3 class="section-title">Professional Experience</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h5>Credit Direct Limited – Ikeja, Lagos</h5>
-                    <span class="badge bg-primary">Apr 2020 – Present</span>
-                    <p><strong>Enterprise Application & Database Support / Data Analyst</strong></p>
-                    <ul>
-                        <li>Automated 150+ recurring reports, reducing manual effort by 60% and increasing accuracy for strategic decision-making.</li>
-                        <li>Administer and support MySQL & SQL Server databases in production and test environments.</li>
-                        <li>Implemented performance tuning, query optimization, and indexing strategies, improving query execution time by up to 40%.</li>
-                        <li>Designed and maintained backup/recovery plans, ensuring zero data loss incidents.</li>
-                        <li>Spearheaded migration of enterprise databases to cloud, boosting scalability and reducing downtime by 40%.</li>
-                        <li>Configured and optimized Docker-based deployments for databases.</li>
-                        <li>Implemented server maintenance and Azure Blob backups for disaster recovery.</li>
-                        <li>Monitored system health and security using database monitoring tools.</li>
+    <header role="banner">
+        <nav class="navbar navbar-expand-lg sticky-top" role="navigation" aria-label="Main navigation">
+            <div class="container">
+                <a class="navbar-brand" href="#hero">Damilare Ogunlana</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" aria-hidden="true" style="background-color:transparent;"></span>
+                    <span class="visually-hidden">Toggle navigation</span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul id="main-nav" class="navbar-nav ms-auto" role="menubar">
+                        <li class="nav-item" role="none"><a class="nav-link" role="menuitem" href="#about">About</a></li>
+                        <li class="nav-item" role="none"><a class="nav-link" role="menuitem" href="#skills">Skills</a></li>
+                        <li class="nav-item" role="none"><a class="nav-link" role="menuitem" href="#achievements">Achievements</a></li>
+                        <li class="nav-item" role="none"><a class="nav-link" role="menuitem" href="#experience">Experience</a></li>
+                        <li class="nav-item" role="none"><a class="nav-link" role="menuitem" href="#projects">Projects</a></li>
+                        <li class="nav-item" role="none"><a class="nav-link" role="menuitem" href="#certs">Certifications</a></li>
+                        <li class="nav-item" role="none"><a class="nav-link" role="menuitem" href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="timeline-item">
-                    <h5>Techservices – Remote, Nigeria</h5>
-                    <span class="badge bg-secondary">Jan 2018 – Apr 2020</span>
-                    <p><strong>Application Support / DevOps Specialist</strong></p>
-                    <ul>
-                        <li>Provided end-to-end application support, ensuring 99.9% system uptime across critical platforms.</li>
-                        <li>Collaborated with developers, QA, and admins to deploy updates across multi-environment systems.</li>
-                        <li>Led migration of services to cloud environments, improving scalability and reducing downtime.</li>
-                        <li>Ensured compliance with ITIL standards for incident, change, and problem management.</li>
-                        <li>Supported CI/CD pipelines, integrating database scripts into automated deployments.</li>
-                        <li>Managed access controls, auditing, and compliance checks to align with industry best practices.</li>
-                        <li>Documented procedures, data dictionaries, and troubleshooting guides for team use.</li>
-                    </ul>
+
+                <!-- Theme toggle -->
+                <div class="ms-3 d-flex align-items-center">
+                    <button id="theme-toggle" class="btn btn-outline-accent" aria-pressed="false" aria-label="Toggle dark mode" title="Toggle theme">
+                        <i id="theme-icon" class="bi bi-moon-stars-fill" aria-hidden="true"></i>
+                        <span class="visually-hidden">Toggle dark mode</span>
+                    </button>
                 </div>
             </div>
-        </section>
-        <!-- Key Projects with Modal Popup -->
-        <section id="projects" class="mb-5">
-            <h3 class="section-title">Key Projects</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card project-card p-3 mb-3" data-bs-toggle="modal" data-bs-target="#proj1">
-                        <h5>Database Migration (NimbleX → NX360)</h5>
-                        <span class="badge bg-info text-dark">Data Integrity</span>
-                        <p>Seamless transition for enterprise loan management system migration.</p>
-                    </div>
-                    <div class="card project-card p-3 mb-3" data-bs-toggle="modal" data-bs-target="#proj2">
-                        <h5>Server Commissioning</h5>
-                        <span class="badge bg-success">Infrastructure</span>
-                        <p>Deployment of database & application servers, on-premise & cloud.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card project-card p-3 mb-3" data-bs-toggle="modal" data-bs-target="#proj3">
-                        <h5>Digital Business Dashboard</h5>
-                        <span class="badge bg-primary">Power BI</span>
-                        <p>Executive KPI dashboards for rapid decisions.</p>
-                    </div>
-                    <div class="card project-card p-3 mb-3" data-bs-toggle="modal" data-bs-target="#proj4">
-                        <h5>Report Automation</h5>
-                        <span class="badge bg-warning text-dark">Efficiency</span>
-                        <p>Automating 150+ periodic reports for accuracy.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- GitHub Repositories -->
-<section id="github" class="mb-5">
-    <h3 class="section-title">My GitHub Repositories</h3>
-    <div class="row">
-        <!-- Example Repo Card -->
-        <div class="col-md-6">
-            <div class="card project-card p-3 mb-3">
-                <h5>
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="24" style="vertical-align:middle;margin-right:8px;">
-                    <a href="https://github.com/Damilare-Daniel/Damilare-Daniel" target="_blank">My Repo</a>
-                </h5>
-                <p>These are some of the SQL projects I've worked on.</p>
-            </div>
+        </nav>
+        <!-- Progress bar -->
+        <div id="progress-wrap" aria-hidden="true">
+            <div id="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
         </div>
-            <!-- Project Modals -->
-            <div class="modal fade" id="proj1" tabindex="-1" aria-labelledby="proj1Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="proj1Label">Database Migration (NimbleX → NX360)</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Led the migration of enterprise loan management databases from NimbleX to NX360.<br>
-                                - Ensured zero data loss and maintained full data integrity across millions of records.<br>
-                                - Planned and executed seamless cutover with minimal downtime.<br>
-                                - Coordinated with business, tech, and compliance stakeholders.
-                            </p>
-                        </div>
-                    </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section" aria-label="Hero" data-aos="zoom-in">
+            <div class="container text-center">
+                <h1>Damilare Ogunlana</h1>
+                <h2>Database Administrator & Data Engineer</h2>
+                <span class="badge rounded-pill bg-light text-dark mb-2">Lagos, Nigeria</span>
+                <p class="lead mt-3">
+                    Detail-oriented DBA & Data Engineer with proven expertise in MySQL, SQL Server, and PostgreSQL.
+                    Bridging business needs with technical solutions for fintech & enterprise environments.
+                </p>
+                <div class="mt-3 mb-4">
+                    <span class="badge bg-primary">Microsoft SQL Server Certified</span>
+                    <span class="badge bg-info text-dark">SCRUM Fundamentals</span>
+                    <span class="badge bg-success">AWS, Azure, Docker, DevOps</span>
+                </div>
+
+                <div class="d-flex justify-content-center align-items-center gap-3 mt-3 mb-4 flex-wrap">
+                    <a class="glow-btn" href="Damilare_Ogunlana_CV_.pdf" download aria-label="Download CV">
+                        <i class="bi bi-download"></i> Download CV
+                    </a>
+                    <a class="glow-btn linkedin" href="https://www.linkedin.com/in/damilareogunlana/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="18" height="18" alt="" aria-hidden="true"> LinkedIn
+                    </a>
                 </div>
             </div>
-            <div class="modal fade" id="proj2" tabindex="-1" aria-labelledby="proj2Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="proj2Label">Server Commissioning</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Deployed and commissioned database and application servers both on-premise and in cloud environments.<br>
-                                - Enhanced IT resilience and enabled high availability.<br>
-                                - Implemented automated backup, monitoring, and recovery procedures.<br>
-                                - Achieved 100% disaster recovery readiness.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="proj3" tabindex="-1" aria-labelledby="proj3Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="proj3Label">Digital Business Dashboard</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Designed and built Power BI dashboards to track KPIs across financial, operational, and customer metrics.<br>
-                                - Enabled real-time executive decision-making.<br>
-                                - Fostered a data-driven business culture.<br>
-                                - Trained teams on dashboard usage and best practices.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="proj4" tabindex="-1" aria-labelledby="proj4Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="proj4Label">Report Automation</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Automated over 150 periodic reports, significantly enhancing data accuracy and operational efficiency.<br>
-                                - Reduced reporting cycle times.<br>
-                                - Freed up analyst hours for strategic analysis.<br>
-                                - Improved stakeholder satisfaction with timely, actionable insights.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="wave" aria-hidden="true"></div>
         </section>
-        <!-- Certifications & Education -->
-        <section id="certs" class="mb-5">
-            <h3 class="section-title">Certifications & Education</h3>
-            <div class="card p-4">
-                <div>
-                    <span class="cert-badge">Microsoft SQL Server (Database Management)</span>
-                    <span class="cert-badge">Advanced Data Analysis & Reconciliation</span>
-                    <span class="cert-badge">SCRUM Fundamentals Certified (SFC)</span>
-                    <span class="cert-badge">Project Management (PMP – coursework)</span>
-                    <span class="cert-badge">Jobberman Soft Skills Certification</span>
+
+        <div class="container mt-5 mb-5">
+            <!-- About -->
+            <section id="about" class="mb-5 section-card" aria-labelledby="about-title" data-aos="fade-up">
+                <h3 id="about-title" class="section-title">Professional Summary</h3>
+                <div class="card p-4">
+                    <p>
+                        Detail-oriented Database Administrator & Data Engineer with proven expertise in MySQL,
+                        SQL Server, and PostgreSQL across development, testing, and production environments.
+                        Skilled in performance tuning, replication, backups, query optimization, and automation.
+                        Experienced in technical support, DevOps practices, and cloud-based infrastructures,
+                        ensuring system stability, data integrity, and security.
+                    </p>
                 </div>
-                <div class="mt-3">
-                    <strong>Ajayi Crowther University</strong> <br>
-                    B.Sc. Computer Science (CGPA: 4.15/5.0)
+            </section>
+
+            <!-- Skills -->
+            <section id="skills" class="mb-5 section-card" aria-labelledby="skills-title" data-aos="fade-up">
+                <h3 id="skills-title" class="section-title">Core Competencies</h3>
+                <div class="card p-4">
+                    <div class="mb-3 skill-list" role="list">
+                        <!-- each badge has role listitem for screen readers -->
+                        <span role="listitem" class="skill-badge">MySQL</span>
+                        <span role="listitem" class="skill-badge">SQL Server</span>
+                        <span role="listitem" class="skill-badge">PostgreSQL</span>
+                        <span role="listitem" class="skill-badge">Oracle</span>
+                        <span role="listitem" class="skill-badge">Backup & Recovery</span>
+                        <span role="listitem" class="skill-badge">Replication</span>
+                        <span role="listitem" class="skill-badge">High Availability</span>
+                        <span role="listitem" class="skill-badge">Performance Tuning</span>
+                        <span role="listitem" class="skill-badge">Python</span>
+                        <span role="listitem" class="skill-badge">Docker</span>
+                        <span role="listitem" class="skill-badge">Cloud (AWS, Azure)</span>
+                        <span role="listitem" class="skill-badge">Power BI</span>
+                        <span role="listitem" class="skill-badge">CI/CD</span>
+                        <span role="listitem" class="skill-badge">Linux</span>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <!-- Contact -->
-        <section id="contact">
-            <h3 class="section-title">Contact</h3>
-            <div class="card p-4">
-                <p>
-                    <span class="contact-icon">&#9993;</span>
-                    <a href="mailto:contactogunlana@gmail.com">contactogunlana@gmail.com</a>
-                </p>
-                <p>
-                    <span class="contact-icon">&#128222;</span>
-                    <a href="tel:+2348136344965">(+234) 813-634-4965</a>
-                </p>
-                <p>
-                    <span class="contact-icon">&#127968;</span>
-                    Lagos, Nigeria
-                </p>
-                <p>
-                    <span class="contact-icon">&#128214;</span>
-                    <a href="#" target="https://www.linkedin.com/in/damilareogunlana/">LinkedIn</a>
-                </p>
-            </div>
-        </section>
-    </div>
-    <div class="footer">
-        &copy; 2025 Damilare Ogunlana | Database Administrator & Data Engineer
-    </div>
-    <!-- Bootstrap JS + Icons -->
+            </section>
+
+            <!-- Achievements -->
+            <section id="achievements" class="mb-5 section-card" aria-labelledby="achievements-title" data-aos="fade-up">
+                <h3 id="achievements-title" class="section-title">Achievements & Impact</h3>
+                <div class="row text-center">
+                    <div class="col-md-3 col-6">
+                        <div class="counter-box" data-aos="zoom-in">
+                            <div class="counter" data-target="150" aria-label="Reports Automated">0</div>
+                            <div class="counter-label">Reports Automated</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="counter-box" data-aos="zoom-in" data-aos-delay="60">
+                            <div class="counter" data-target="40" aria-label="Percent downtime reduced">0</div>
+                            <div class="counter-label">% Downtime Reduced</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="counter-box" data-aos="zoom-in" data-aos-delay="120">
+                            <div class="counter" data-target="99.9" aria-label="System uptime percent">0</div>
+                            <div class="counter-label">System Uptime (%)</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="counter-box" data-aos="zoom-in" data-aos-delay="180">
+                            <div class="counter" data-target="100" aria-label="Disaster recovery readiness">0</div>
+                            <div class="counter-label">Disaster Recovery Readiness (%)</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section id="experience" class="mb-5 section-card" aria-labelledby="experience-title" data-aos="fade-up">
+                <h3 id="experience-title" class="section-title">Professional Experience</h3>
+                <div class="timeline">
+                    <article class="timeline-item" data-aos="fade-right">
+                        <h5>Credit Direct Limited – Ikeja, Lagos</h5>
+                        <span class="badge bg-primary">Apr 2020 – Present</span>
+                        <p><strong>Enterprise Application & Database Support / Data Analyst</strong></p>
+                        <ul>
+                            <li>Automated 150+ recurring reports, reducing manual effort and increasing accuracy.</li>
+                            <li>Administer and support MySQL & SQL Server databases in production and test environments.</li>
+                            <li>Implemented performance tuning, query optimization, and indexing strategies.</li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item" data-aos="fade-right" data-aos-delay="80">
+                        <h5>Techservices – Remote, Nigeria</h5>
+                        <span class="badge bg-secondary">Jan 2018 – Apr 2020</span>
+                        <p><strong>Application Support / DevOps Specialist</strong></p>
+                        <ul>
+                            <li>Provided end-to-end application support, ensuring 99.9% uptime.</li>
+                            <li>Led migration of services to cloud environments and supported CI/CD pipelines.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section id="projects" class="mb-5 section-card" aria-labelledby="projects-title" data-aos="fade-up">
+                <h3 id="projects-title" class="section-title">Key Projects</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card project-card p-3 mb-3" data-aos="zoom-in-up" role="button" tabindex="0" aria-pressed="false">
+                            <h5>Database Migration (NimbleX → NX360)</h5>
+                            <span class="badge bg-info text-dark">Data Integrity</span>
+                            <p>Seamless transition for enterprise loan management system migration.</p>
+                        </div>
+                        <div class="card project-card p-3 mb-3" data-aos="zoom-in-up" data-aos-delay="60" role="button" tabindex="0">
+                            <h5>Server Commissioning</h5>
+                            <span class="badge bg-success">Infrastructure</span>
+                            <p>Deployment of database & application servers, on-premise & cloud.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card project-card p-3 mb-3" data-aos="zoom-in-up" data-aos-delay="120" role="button" tabindex="0">
+                            <h5>Digital Business Dashboard</h5>
+                            <span class="badge bg-primary">Power BI</span>
+                            <p>Executive KPI dashboards for rapid decisions.</p>
+                        </div>
+                        <div class="card project-card p-3 mb-3" data-aos="zoom-in-up" data-aos-delay="180" role="button" tabindex="0">
+                            <h5>Report Automation</h5>
+                            <span class="badge bg-warning text-dark">Efficiency</span>
+                            <p>Automating 150+ periodic reports for accuracy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitHub Repositories -->
+                <section id="github" class="mt-4" aria-labelledby="github-title" data-aos="fade-up">
+                    <h4 id="github-title" class="mb-3">My GitHub Repositories</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card project-card p-3 mb-3">
+                                <h5>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub icon" width="24" style="vertical-align:middle;margin-right:8px;">
+                                    <a href="https://github.com/Damilare-Daniel/Damilare-Daniel" target="_blank" rel="noopener" aria-label="Open GitHub repository">My Repo</a>
+                                </h5>
+                                <p>These are some of the SQL projects I've worked on.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Certifications -->
+            <section id="certs" class="mb-5 section-card" aria-labelledby="certs-title" data-aos="fade-up">
+                <h3 id="certs-title" class="section-title">Certifications & Education</h3>
+                <div class="card p-4">
+                    <div>
+                        <span class="cert-badge">Microsoft SQL Server (Database Management)</span>
+                        <span class="cert-badge">Advanced Data Analysis & Reconciliation</span>
+                        <span class="cert-badge">SCRUM Fundamentals Certified (SFC)</span>
+                        <span class="cert-badge">Project Management (PMP – coursework)</span>
+                        <span class="cert-badge">Jobberman Soft Skills Certification</span>
+                    </div>
+                    <div class="mt-3">
+                        <strong>Ajayi Crowther University</strong><br />
+                        B.Sc. Computer Science (CGPA: 4.15/5.0)
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="mb-5 section-card" aria-labelledby="contact-title" data-aos="fade-up">
+                <h3 id="contact-title" class="section-title">Contact</h3>
+                <div class="card p-4">
+                    <p>
+                        <span class="contact-icon" aria-hidden="true">&#9993;</span>
+                        <a href="mailto:contactogunlana@gmail.com">contactogunlana@gmail.com</a>
+                    </p>
+                    <p>
+                        <span class="contact-icon" aria-hidden="true">&#128222;</span>
+                        <a href="tel:+2348136344965">(+234) 813-634-4965</a>
+                    </p>
+                    <p>
+                        <span class="contact-icon" aria-hidden="true">&#127968;</span>
+                        Lagos, Nigeria
+                    </p>
+                    <p>
+                        <span class="contact-icon" aria-hidden="true">&#128214;</span>
+                        <a href="https://www.linkedin.com/in/damilareogunlana/" target="_blank" rel="noopener">LinkedIn</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo" data-aos="fade-up">
+        <div class="container">
+            &copy; 2025 Damilare Ogunlana | Database Administrator & Data Engineer
+        </div>
+    </footer>
+
+    <!-- Back-to-top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top" hidden>
+        <i class="bi bi-arrow-up-short" aria-hidden="true"></i>
+    </button>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Animated Counters -->
-    <script>
-    document.querySelectorAll('.counter').forEach(counter => {
-        counter.innerText = '0';
-        let updateCounter = () => {
-            const target = +counter.getAttribute('data-target');
-            let count = +counter.innerText;
-            let increment = target > 100 ? Math.ceil(target / 40) : (target < 10 ? 0.1 : 1);
-            if(count < target) {
-                counter.innerText = (count + increment > target ? target : Math.round((count + increment)*10)/10).toString();
-                setTimeout(updateCounter, 20);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        setTimeout(updateCounter, Math.random()*400); // Start at slightly different times for glow effect
-    });
-    </script>
-    <!-- Bootstrap Icons CDN for download icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="scripts.js" defer></script>
 </body>
 </html>
