@@ -43,8 +43,9 @@
             setTheme(saved, false);
             return;
         }
+        // Default to light mode if nothing is saved
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setTheme(prefersDark ? 'dark' : 'light', false);
+        setTheme('light', false); // Always start in light mode
     }
 
     // Toggle theme button
