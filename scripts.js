@@ -17,24 +17,26 @@
     const counters = document.querySelectorAll('.counter');
 
     // Helper: set theme
-    function setTheme(theme, persist = true) {
-        if (theme === 'dark') {
-            htmlEl.classList.remove('theme-light');
-            htmlEl.classList.add('theme-dark');
-            themeToggle.setAttribute('aria-pressed', 'true');
-            themeIcon.className = 'bi bi-sun-fill';
-            if (persist) localStorage.setItem('site-theme', 'dark');
-        } else {
-            htmlEl.classList.remove('theme-dark');
-            htmlEl.classList.add('theme-light');
-            themeToggle.setAttribute('aria-pressed', 'false');
-            themeIcon.className = 'bi bi-moon-stars-fill';
-            if (persist) localStorage.setItem('site-theme', 'light');
-        }
-        // update meta theme-color for mobile
-        const metaTheme = document.querySelector('meta[name="theme-color"]');
-        if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#071233' : '#0d9488');
+   function setTheme(theme, persist = true) {
+    if (theme === 'dark') {
+        htmlEl.classList.remove('theme-light');
+        htmlEl.classList.add('theme-dark');
+        htmlEl.setAttribute('data-theme', 'dark'); // added for CSS targeting
+        themeToggle.setAttribute('aria-pressed', 'true');
+        themeIcon.className = 'bi bi-sun-fill';
+        if (persist) localStorage.setItem('site-theme', 'dark');
+    } else {
+        htmlEl.classList.remove('theme-dark');
+        htmlEl.classList.add('theme-light');
+        htmlEl.setAttribute('data-theme', 'light'); // added for CSS targeting
+        themeToggle.setAttribute('aria-pressed', 'false');
+        themeIcon.className = 'bi bi-moon-stars-fill';
+        if (persist) localStorage.setItem('site-theme', 'light');
     }
+    // update meta theme-color for mobile
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#000000' : '#0d9488');
+}
 
     // Initialize theme based on preference/localStorage
     function initTheme() {
